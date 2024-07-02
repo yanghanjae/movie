@@ -5,7 +5,6 @@ import LandingPage from "./LandingPage/LandingPage";
 import NavBar from "./NavBar/NavBar";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 
-
 function App() {
   return (
     <div className="App">

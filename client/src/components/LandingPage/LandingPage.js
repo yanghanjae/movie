@@ -7,13 +7,11 @@ import AntCard from '../commons/AntCard';
 import MainImage from './Section/MainImage';
 
 function LandingPage() {
-
   const navigate = useNavigate();
 
   const [Movies, setMovies] = useState([]);
   const [MainMovieImage, setMainMovieImage] = useState(null);
   const [CurrentPage, setCurrentPage] = useState(0);
-
 
   useEffect(() => {
     const page = 1
@@ -25,21 +23,14 @@ function LandingPage() {
     fetchMovies(CurrentPage + 1);
   };
 
-
   return (
     <>
-      <div>
-        {/* <Link to ='/items'> items로 이동 </Link> &nbsp;
-        <a href='/items'>items로 이동 </a> */}
-      </div>
       <div style={{ width: '100%' }}>
         {/* Main Image */}
         {MainMovieImage &&
           <MainImage image={`${IMAGE_BASE_URL}w1280${MainMovieImage.backdrop_path}`}
             title={`${MainMovieImage.title}`}
-            overview={MainMovieImage.overview} />
-        }
-
+            overview={MainMovieImage.overview} />}
 
         <div style={{ width: '85%', margin: '1rem auto', position: 'relative' }}>
           <h2 style={{ display: 'inline' }}> 새로 나온 영화</h2>
@@ -47,8 +38,7 @@ function LandingPage() {
           <hr />
 
           {/* Movie Grid Card  */}
-          <Row
-            gutter={[10, 10]}>
+          <Row gutter={[10, 10]}>
             {Movies.map(movie => {
               return (
                 <React.Fragment key={movie.id}>
@@ -59,7 +49,6 @@ function LandingPage() {
                     movieId={movie.id}
                   />
                 </React.Fragment>
-
               )
             })}
           </Row>
@@ -80,7 +69,6 @@ function LandingPage() {
         setMovies([...Movies, ...response.data.results]);
         setMainMovieImage(response.data.results[0]);
         setCurrentPage(response.data.page)
-
       })
   }
 }

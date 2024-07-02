@@ -1,8 +1,6 @@
 import { Descriptions } from 'antd';
 import React from 'react';
 
-
-
 const MovieInfo = (props) => {
   const { movie } = props;
   const items = [
@@ -18,7 +16,6 @@ const MovieInfo = (props) => {
   ];
   return (
     <Descriptions title="Movie Info" bordered items={items} />
-
   )
 }
 

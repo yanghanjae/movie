@@ -10,8 +10,8 @@ function MainImage(props) {
       backgroundSize: 'cover',
       backgroundPosition: 'center center',
       backgroundRepeat: 'no-repeat'
-
     }}>
+
       <div style={{
         position: 'absolute',
         color: ' #fff',
@@ -19,12 +19,9 @@ function MainImage(props) {
         bottom: '25px',
         left: '25px',
         textShadow: '-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000'
-
       }}>
         <h2>{props.title}</h2>
-        <h3 style={{ fontStyle: 'italic', fontWeight: 'bolder' }}>
-          {props.tagline}
-        </h3>
+        <h3 style={{ fontStyle: 'italic', fontWeight: 'bolder' }}> {props.tagline}  </h3>
         <p>{props.overview}</p>
       </div>
     </div>

@@ -25,41 +25,14 @@ const Detail = () => {
 
     // [특정 영화 정보] URL
     let endpointinfo = `${API_URL}${movieId}?api_key=${API_KEY}`
-    // console.log(endpointinfo)
 
     let endpointCrew = `${API_URL}${movieId}/credits?api_key=${API_KEY}`
-    // console.log(endpointCrew)
-
-    // [특정 영화 정보] 영화 아이디로 정보 요청
-    // fetch(endpointinfo)
-    //   .then(response => response.json())
-    //   .then(response => {
-    //     // console.log(response)
-    //     setMovie(response);
-    //   })
 
     axios(endpointinfo)
       .then(response => {
         setMovie(response.data);
       })
 
-    // [출연진] 영화 배우, 제작진 정보 요청
-    // fetch(endpointCrew)
-    //   .then(response => response.json())
-    //   .then(response => {
-    //     console.log(response.crew);
-    //     setCasts(response.cast);
-    //     return response.crew;
-    //   })
-    //   .then((response) => {  // 중복 되는 제작진 제거
-    //     const idSave = new Set();
-    //     const searchCrew = response.filter((crew) => {
-    //       const isIn = idSave.has(crew.id);
-    //       idSave.add(crew.id);
-    //       return !isIn;
-    //     })
-    //     setCrew(searchCrew);
-    //   })
     axios(endpointCrew)
       .then(response => {
         setCasts(response.data.cast);
@@ -78,9 +51,7 @@ const Detail = () => {
 
   //// 버튼 핸들러
   function toggleActorView() {
-    // console.log('버튼클릭')
     setActorToggle(!ActorToggle)
-    // console.log(ActorToggle)
   }
 
   function toggleCrewView() {
@@ -111,25 +82,17 @@ const Detail = () => {
         <MovieInfo movie={Movie} />
         <br />
         {/* Actors Grid */}
-        <div style={{
-          textAlign: 'center',
-          margin: '30px',
-        }}>
+        <div style={{ textAlign: 'center', margin: '30px', }}>
           <Button onClick={toggleActorView} style={{ margin: '0 30px' }} type={ActorToggle ? 'primary' : 'dashed'}> 배우 목록 </Button>
           <Button onClick={toggleCrewView} style={{ margin: '0 30px' }} type={CrewToggle ? 'primary' : 'dashed'}> 제작진 목록 </Button>
         </div>
         {ActorToggle && <div>
           <Divider style={{ border: '#0ff ' }}>배우 목록</Divider>
-          <ImageList targets={Casts} />  </div>
-        }
+          <ImageList targets={Casts} />  </div>}
         {CrewToggle && <div>
           <Divider style={{ border: '#777' }}>제작진 목록</Divider>
-          <ImageList targets={Crew} />
-        </ div>}
-
-
+          <ImageList targets={Crew} />  </ div>}
       </div>
-
     </>
   )
 }

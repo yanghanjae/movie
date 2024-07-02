@@ -13,22 +13,14 @@ const NavBar = () => {
 
   return (
     <Layout>
-      <Header
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-        }}
-      >
+      <Header style={{ display: 'flex', alignItems: 'center', }}>
         <div className="demo-logo" />
         <Menu
           theme="dark"
           mode="horizontal"
           defaultSelectedKeys={['Home']}
           items={items1}
-          style={{
-            flex: 1,
-            minWidth: 0,
-          }}
+          style={{ flex: 1, minWidth: 0, }}
         />
       </Header>
     </Layout>

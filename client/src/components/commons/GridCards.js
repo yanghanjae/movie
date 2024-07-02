@@ -2,8 +2,6 @@ import { Col } from 'antd';
 import React from 'react';
 
 const GridCards = (props) => {
-  // console.log(props)
-  // console.log(props.landingPage)
   if(props.landingPage) {
     // [LandingPage]  처리.
     return (
